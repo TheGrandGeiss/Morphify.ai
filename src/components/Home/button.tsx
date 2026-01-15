@@ -10,12 +10,7 @@ interface ButtonProps {
 }
 
 const Button: React.FC<ButtonProps> = ({ children, className }) => {
-  useEffect(() => {
-    console.log({
-      name: process.env.AUTH_GOOGLE_ID,
-      uri: process.env.NEXT_PUBLIC_MONGODB_URI,
-    });
-  }, []);
+  
 
   return (
     <button
