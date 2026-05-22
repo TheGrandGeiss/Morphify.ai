@@ -15,7 +15,7 @@ const userSchema = new mongoose.Schema(
       },
     ],
   },
-  { timestamps: true }
+  { timestamps: true },
 );
 const ImageSchema = new mongoose.Schema({
   imageUrl: {
@@ -35,11 +35,11 @@ const ImageSchema = new mongoose.Schema({
     required: true,
   },
   uploadedBy: {
-    type: String, // or ObjectId if referencing a User model
+    type: String,
     required: true,
   },
   uploadedByEmail: {
-    type: String, // or ObjectId if referencing a User model
+    type: String,
     required: true,
   },
   uploadedAt: {
