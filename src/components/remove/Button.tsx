@@ -12,7 +12,7 @@ const Button = ({ input }: { input: { object: string; title: string } }) => {
   const transformedImage = useImageStore((state) => state.transformedImage);
   const setLoading = useImageStore((state) => state.setLoading);
   const setTransformedImage = useImageStore(
-    (state) => state.setTransformedImage
+    (state) => state.setTransformedImage,
   );
 
   async function applyTransformation() {
@@ -79,13 +79,13 @@ const Button = ({ input }: { input: { object: string; title: string } }) => {
       <button
         disabled={!file || !input || !input.object}
         onClick={applyTransformation}
-        className='w-full rounded-4xl cursor-pointer hover:brightness-125 duration-300 font-semibold bg-gradient-to-br from-orange-300 to-custom-orange py-4 text-white disabled:brightness-60'>
+        className='w-full rounded-4xl cursor-pointer hover:brightness-125 duration-300 font-semibold bg-linear-to-br from-orange-300 to-custom-orange py-4 text-white disabled:brightness-60'>
         Apply Transformation
       </button>
       {transformedImage && (
         <button
           onClick={handleDownload}
-          className='w-full font-semibold rounded-4xl bg-gradient-to-br from-orange-300 to-custom-orange py-4 text-white disabled:brightness-75'>
+          className='w-full font-semibold rounded-4xl bg-linear-to-br from-orange-300 to-custom-orange py-4 text-white disabled:brightness-75'>
           Download
         </button>
       )}
