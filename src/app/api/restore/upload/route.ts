@@ -27,7 +27,7 @@ export async function POST(req: Request) {
     if (!file) {
       return NextResponse.json(
         { message: 'Please Provide File' },
-        { status: 400 }
+        { status: 400 },
       );
     }
 
@@ -69,25 +69,23 @@ export async function POST(req: Request) {
           },
         },
       },
-      { new: true }
+      { new: true },
     );
     await storedImage.save();
 
     return NextResponse.json(
       { message: 'Upload Successful', url: result },
-      { status: 200 }
+      { status: 200 },
     );
   } catch (error) {
+    console.log(error);
     if (error instanceof Error) {
       return NextResponse.json(
         { message: `Error: ${error.message}` },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
-    return NextResponse.json(
-      { message: 'Unknown server error occurred.' },
-      { status: 500 }
-    );
+    return NextResponse.json({ message: error }, { status: 500 });
   }
 }
